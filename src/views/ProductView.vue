@@ -4,6 +4,6 @@
 
 <template>
   <main>
-    <p>Hello Home View</p>
+    <p>Hello Product View</p>
   </main>
 </template>

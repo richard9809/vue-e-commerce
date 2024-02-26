@@ -4,6 +4,6 @@
 
 <template>
   <main>
-    <p>Hello Home View</p>
+    <p>Hello Sign Up View</p>
   </main>
 </template>

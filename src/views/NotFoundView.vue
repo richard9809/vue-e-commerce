@@ -4,6 +4,6 @@
 
 <template>
   <main>
-    <p>Hello Home View</p>
+    <p>404 Not Found Page</p>
   </main>
 </template>
