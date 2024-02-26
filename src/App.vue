@@ -12,7 +12,7 @@ const value = ref("");
   <header class="flex align-items-center border-bottom-1 border-200">
     <Navbar />
   </header>
-  <main>
+  <main class="h-full">
     <RouterView />
   </main>
 </template>

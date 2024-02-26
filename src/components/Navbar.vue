@@ -3,6 +3,7 @@ import { RouterLink, useRouter } from "vue-router";
 import { ref } from "vue";
 
 const router = useRouter();
+console.log(router);
 
 const primaryNav = ref(null);
 const navToggle = ref(null);
