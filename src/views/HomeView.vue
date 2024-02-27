@@ -1,6 +1,6 @@
 <script setup>
 import Product from "@/components/Product.vue";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import { useProductStore } from "@/stores/product";
 import { useCategoryStore } from "@/stores/category";
 
@@ -11,8 +11,20 @@ const maxPrice = ref(0);
 const minPrice = ref(0);
 const search = ref("");
 const selectedCategory = ref("");
-const categories = storeCategory.categoriesContent
 
+watchEffect(() => {
+  applyFilters();
+});
+
+async function applyFilters() {
+  console.log("Selected category: ", selectedCategory.value.id);
+  await storeProduct.fetchFilteredProducts({
+    title: search.value,
+    price_min: minPrice.value,
+    price_max: maxPrice.value,
+    categoryId: selectedCategory.value.id,
+  });
+}
 </script>
 
 <template>

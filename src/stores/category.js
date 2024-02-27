@@ -9,9 +9,6 @@ export const useCategoryStore = defineStore("category", {
     categoriesContent() {
       return this.categories;
     },
-    categoryNames() {
-      return this.categories.map((category) => category.name);
-    },
   },
 
   actions: {
