@@ -47,8 +47,12 @@ svg {
   display: block;
 }
 
-.page {
+/* .page {
   height: calc(100% - 4rem);
+} */
+
+#app {
+  height: auto;
 }
 
 .visually-hidden {
