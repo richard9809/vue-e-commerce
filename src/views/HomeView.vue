@@ -1,7 +1,9 @@
 <script setup>
-import ProductList from "@/components/ProductList.vue";
+import Product from "@/components/Product.vue";
 import { ref } from "vue";
+import { useProductStore } from "@/stores/product";
 
+const store = useProductStore();
 const maxPrice = ref(0);
 const minPrice = ref(0);
 const search = ref("");
@@ -21,49 +23,61 @@ const search = ref("");
         >
           <template #content>
             <div class="surface-ground mx-2 py-3 px-2">
-              <div
-                class="md:flex md:justify-content-between align-items-center"
-              >
-                <div class="price-filter md:flex md:gap-4 align-items-center">
-                  <div class="">
-                    <label for="min-price" class="font-bold block mb-2">
-                      Min Price
-                    </label>
-                    <InputNumber
-                      v-model="minPrice"
-                      inputId="min-price"
-                      showButtons
-                      mode="currency"
-                      currency="USD"
-                      class="text-2xl md:text-lg"
-                    />
-                  </div>
-                  <div>
-                    <label for="max-price" class="font-bold block mb-2">
-                      Max Price
-                    </label>
-                    <InputNumber
-                      v-model="maxPrice"
-                      inputId="max-price"
-                      showButtons
-                      mode="currency"
-                      currency="USD"
-                      class="text-2xl md:text-lg"
-                    />
-                  </div>
+              <div class="grid">
+                <div class="col-12 md:col-6">
+                  <label for="min-price" class="font-bold block mb-1">
+                    Min Price
+                  </label>
+                  <InputNumber
+                    v-model="minPrice"
+                    inputId="min-price"
+                    showButtons
+                    mode="currency"
+                    currency="USD"
+                    class="w-full"
+                  />
                 </div>
-                <div class="search-filter mt-4">
+                <div class="col-12 md:col-6">
+                  <label for="max-price" class="font-bold block mb-1">
+                    Max Price
+                  </label>
+                  <InputNumber
+                    v-model="maxPrice"
+                    inputId="max-price"
+                    showButtons
+                    mode="currency"
+                    currency="USD"
+                    class="w-full"
+                  />
+                </div>
+
+                <div class="select-filter col-12 md:col-6">
+                  <Dropdown
+                    v-model="selectedCity"
+                    :options="cities"
+                    optionLabel="name"
+                    placeholder="Select a City"
+                    checkmark
+                    :highlightOnSelect="false"
+                    class="w-full"
+                  />
+                </div>
+                <div class="search-filter col-12 md:col-6">
                   <InputText
                     type="text"
-                    class="text-xl md:text-lg md:py-1 md:px-2"
+                    class="w-full"
                     v-model="search"
                     placeholder="Search..."
                   />
                 </div>
               </div>
             </div>
-            <div class="pt-4 px-2">
-              <ProductList />
+            <div class="product-list">
+              <Product
+                v-for="(item, i) in store.productsContent"
+                :key="i"
+                :item="item"
+              />
             </div>
           </template>
         </Card>
@@ -72,3 +86,16 @@ const search = ref("");
   </div>
 </template>
 
+<style scoped>
+.product-list {
+  display: grid;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  place-content: center;
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+</style>
+
+<!-- class="flex flex-column gap-4 py-4 px-4 md:px-2 md:flex-row md:wrap bg-primary-500 " -->

@@ -1,7 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import Navbar from "./components/Navbar.vue";
+import { useProductStore } from "@/stores/product";
+
+const store = useProductStore();
+onMounted(() => {
+  store.fetchProducts();
+});
 
 const date = ref();
 const value = ref("");

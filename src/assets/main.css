@@ -51,7 +51,7 @@ svg {
   height: calc(100% - 4rem);
 }
 
-.visually-hidden{
+.visually-hidden {
   display: none;
 }
 
@@ -61,4 +61,23 @@ svg {
 
   width: min(var(--max-width), 100% - (var(--container-padding) * 2));
   margin-inline: auto;
+}
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+  color: #db4444;
+}
+
+.p-button.p-button-info,
+.p-button-group.p-button-info > .p-button,
+.p-splitbutton.p-button-info > .p-button {
+  background: #db4444 !important;
+  border: 1px solid #db4444 !important;
+}
+
+.p-inputtext {
+  padding: 0.5rem;
+}
+
+.p-inputnumber.p-inputnumber-buttons-stacked {
+  height: 2.5rem;
 }

@@ -6,13 +6,17 @@ import PrimeVue from "primevue/config";
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeicons/primeicons.css";
 
-
 import Card from "primevue/card";
 import Breadcrumb from "primevue/breadcrumb";
 import Button from "primevue/button";
 import FloatLabel from "primevue/floatlabel";
 import InputText from "primevue/inputtext";
 import InputNumber from "primevue/inputnumber";
+import IconField from "primevue/iconfield";
+import InputIcon from "primevue/inputicon";
+import Rating from "primevue/rating";
+import Dropdown from "primevue/dropdown";
+
 
 import App from "./App.vue";
 import router from "./router";
@@ -26,7 +30,10 @@ app.component("Card", Card);
 app.component("FloatLabel", FloatLabel);
 app.component("InputText", InputText);
 app.component("InputNumber", InputNumber);
-
+app.component("IconField", IconField);
+app.component("InputIcon", InputIcon);
+app.component("Rating", Rating);
+app.component("Dropdown", Dropdown);
 
 app.use(createPinia());
 app.use(router);
