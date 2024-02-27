@@ -19,7 +19,6 @@ export const useProductStore = defineStore("product", {
         );
         const data = await products.json();
         this.products = data;
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

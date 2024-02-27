@@ -3,10 +3,14 @@ import { ref, onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import Navbar from "./components/Navbar.vue";
 import { useProductStore } from "@/stores/product";
+import { useCategoryStore } from "./stores/category";
 
-const store = useProductStore();
+const storeProduct = useProductStore();
+const storeCategory = useCategoryStore();
+
 onMounted(() => {
-  store.fetchProducts();
+  storeProduct.fetchProducts();
+  storeCategory.fetchCategories();
 });
 
 const date = ref();

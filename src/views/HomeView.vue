@@ -2,11 +2,17 @@
 import Product from "@/components/Product.vue";
 import { ref } from "vue";
 import { useProductStore } from "@/stores/product";
+import { useCategoryStore } from "@/stores/category";
 
-const store = useProductStore();
+const storeProduct = useProductStore();
+const storeCategory = useCategoryStore();
+
 const maxPrice = ref(0);
 const minPrice = ref(0);
 const search = ref("");
+const selectedCategory = ref("");
+const categories = storeCategory.categoriesContent
+
 </script>
 
 <template>
@@ -53,10 +59,10 @@ const search = ref("");
 
                 <div class="select-filter col-12 md:col-6">
                   <Dropdown
-                    v-model="selectedCity"
-                    :options="cities"
+                    v-model="selectedCategory"
+                    :options="storeCategory.categoriesContent"
                     optionLabel="name"
-                    placeholder="Select a City"
+                    placeholder="Select a Category"
                     checkmark
                     :highlightOnSelect="false"
                     class="w-full"
@@ -74,7 +80,7 @@ const search = ref("");
             </div>
             <div class="product-list">
               <Product
-                v-for="(item, i) in store.productsContent"
+                v-for="(item, i) in storeProduct.productsContent"
                 :key="i"
                 :item="item"
               />
