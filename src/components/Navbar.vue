@@ -3,7 +3,6 @@ import { RouterLink, useRouter } from "vue-router";
 import { ref } from "vue";
 
 const router = useRouter();
-console.log(router);
 
 const primaryNav = ref(null);
 const navToggle = ref(null);
@@ -63,9 +62,7 @@ function toggleNav() {
             >
           </li>
           <li class="mobile-link">
-            <RouterLink to="/checkout" active-class="active-link"
-              >Checkout</RouterLink
-            >
+            <RouterLink to="/cart" active-class="active-link">Cart</RouterLink>
           </li>
           <li class="mobile-link">
             <RouterLink to="/profile" active-class="active-link"

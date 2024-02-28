@@ -17,6 +17,10 @@ import InputIcon from "primevue/inputicon";
 import Rating from "primevue/rating";
 import Dropdown from "primevue/dropdown";
 
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import ColumnGroup from "primevue/columngroup";
+import Row from "primevue/row";
 
 import App from "./App.vue";
 import router from "./router";
@@ -34,6 +38,10 @@ app.component("IconField", IconField);
 app.component("InputIcon", InputIcon);
 app.component("Rating", Rating);
 app.component("Dropdown", Dropdown);
+app.component("DataTable", DataTable);
+app.component("Column", Column);
+app.component("ColumnGroup", ColumnGroup);
+app.component("Row", Row);
 
 app.use(createPinia());
 app.use(router);

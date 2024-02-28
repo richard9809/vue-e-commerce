@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+// import { usePriceFormatter } from "@/composables/priceFormatter";
 
 defineProps({
   item: {
@@ -7,6 +8,8 @@ defineProps({
   },
 });
 const rating = ref(4);
+// const formatPrice = usePriceFormatter()
+// console.log(formatPrice(1000000));
 </script>
 
 <template>
@@ -19,11 +22,7 @@ const rating = ref(4);
     </template>
     <template #content>
       <div class="mt-4 flex flex-column align-items-center">
-        <img
-          src="/images/prod-img.jpg"
-          alt="Product image"
-          class="w-6 h-6"
-        />
+        <img src="/images/prod-img.jpg" alt="Product image" class="w-6 h-6" />
 
         <div class="flex flex-column align-items-center mt-2">
           <h4 class="font-bold text-xl p-0">{{ item.title }}</h4>

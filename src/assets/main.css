@@ -52,7 +52,7 @@ svg {
 } */
 
 #app {
-  height: auto;
+  height: calc(100% - 4rem);
 }
 
 .visually-hidden {
@@ -84,4 +84,24 @@ svg {
 
 .p-inputnumber.p-inputnumber-buttons-stacked {
   height: 2.5rem;
+}
+
+.p-datatable-footer {
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: end;
+  padding-block: 1.5rem;
+}
+
+.custom .p-button {
+  background: #db4444;
+  border: 1px solid #db4444;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+}
+
+.custom .p-button:hover {
+  background-color: #e07575;
+  border: 1px solid #e07575;
 }
