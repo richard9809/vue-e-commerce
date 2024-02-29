@@ -16,6 +16,8 @@ import IconField from "primevue/iconfield";
 import InputIcon from "primevue/inputicon";
 import Rating from "primevue/rating";
 import Dropdown from "primevue/dropdown";
+import Dialog from "primevue/dialog";
+
 
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
@@ -42,6 +44,7 @@ app.component("DataTable", DataTable);
 app.component("Column", Column);
 app.component("ColumnGroup", ColumnGroup);
 app.component("Row", Row);
+app.component("Dialog", Dialog);
 
 app.use(createPinia());
 app.use(router);

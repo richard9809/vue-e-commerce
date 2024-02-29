@@ -14,7 +14,7 @@
       class="flex justify-content-between border-bottom-1 border-gray-300 py-1"
     >
       <p>Subtotal</p>
-      <p>$1,750</p>
+      <p>${{ numberFormat(total) }}</p>
     </div>
     <div
       class="flex justify-content-between border-bottom-1 border-gray-300 py-1"
@@ -26,10 +26,21 @@
       class="flex justify-content-between border-bottom-1 border-gray-300 py-1"
     >
       <p>Total</p>
-      <p>$1,750</p>
+      <p>${{ numberFormat(total) }}</p>
     </div>
     <div class="flex justify-content-center py-2">
       <Button label="Proceed to Checkout" />
     </div>
   </div>
 </template>
+
+<script setup>
+defineProps({
+  total: Number,
+});
+
+function numberFormat(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+</script>

@@ -4,17 +4,18 @@ import { RouterLink, RouterView } from "vue-router";
 import Navbar from "./components/Navbar.vue";
 import { useProductStore } from "@/stores/product";
 import { useCategoryStore } from "./stores/category";
+import { useCartStore } from "./stores/cart";
 
 const storeProduct = useProductStore();
 const storeCategory = useCategoryStore();
+const storeCart = useCartStore();
 
 onMounted(() => {
   storeProduct.fetchProducts();
   storeCategory.fetchCategories();
+  storeCart.fetchCartItems();
 });
 
-const date = ref();
-const value = ref("");
 </script>
 
 <template>

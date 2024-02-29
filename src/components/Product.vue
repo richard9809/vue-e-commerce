@@ -1,15 +1,30 @@
 <script setup>
 import { ref } from "vue";
-// import { usePriceFormatter } from "@/composables/priceFormatter";
+import { useCartStore } from "@/stores/cart";
 
 defineProps({
   item: {
     type: Object,
   },
 });
+const store = useCartStore();
 const rating = ref(4);
-// const formatPrice = usePriceFormatter()
-// console.log(formatPrice(1000000));
+
+const addCartItem = (cartId, productName, productPrice) => {
+  const newCartItem = {
+    id: cartId,
+    name: productName,
+    price: productPrice,
+    quantity: 1,
+    image: "images/prod-img.jpg",
+  };
+
+  store.addToCart(newCartItem);
+};
+
+function numberFormat(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 </script>
 
 <template>
@@ -36,12 +51,13 @@ const rating = ref(4);
         />
       </div>
       <div class="flex justify-content-between align-items-center">
-        <h6 class="font-bold text-xl">${{ item.price }}</h6>
+        <h6 class="font-bold text-xl">${{ numberFormat(item.price) }}</h6>
         <Button
           icon="pi pi-shopping-cart"
           severity="info"
           aria-label="Shopping Cart"
           class="py-2"
+          @click="addCartItem(item.id, item.title, item.price)"
         />
       </div>
     </template>

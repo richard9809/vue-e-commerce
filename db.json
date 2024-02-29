@@ -1,0 +1,11 @@
+{
+  "cart": [
+    {
+      "id": "16",
+      "name": "Classic White Tee - Timeless Style and Comfort",
+      "price": 73,
+      "quantity": 100,
+      "image": "images/prod-img.jpg"
+    }
+  ]
+}
