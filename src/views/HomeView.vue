@@ -29,6 +29,7 @@ async function applyFilters() {
 
 <template>
   <div class="h-full surface-ground">
+    <Toast />
     <div class="container">
       <div class="py-4">
         <Card

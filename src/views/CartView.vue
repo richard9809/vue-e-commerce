@@ -8,6 +8,7 @@ const store = useCartStore();
 </script>
 
 <template>
+  <Toast />
   <div class="h-full">
     <div class="container py-4 h-full">
       <div

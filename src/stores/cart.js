@@ -28,7 +28,8 @@ export const useCartStore = defineStore("cart", {
       });
       const newCartItem = await response.json();
       console.log(newCartItem);
-      this.cartItems(...this.cartItems, newCartItem);
+      this.cartItems = [newCartItem, ...this.cartItems];
+      this.fetchCartItems();
     },
     async fetchCartItems() {
       try {

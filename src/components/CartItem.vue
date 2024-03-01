@@ -1,6 +1,9 @@
 <script setup>
 import { useCartStore } from "@/stores/cart";
 import { ref } from "vue";
+import useToastMessages from "@/composables/useToastMessages";
+
+const { showSuccessToast, showErrorToast } = useToastMessages();
 
 defineProps({
   item: {
@@ -33,6 +36,12 @@ const handleEdit = (item) => {
   store.updateCartItem(updatedItem);
   store.fetchCartItems();
   visible.value = false;
+  showSuccessToast("Edit", "Cart item has been edited successfully");
+};
+
+const handleDelete = (item) => {
+  store.deleteCart(item);
+  showSuccessToast("Delete", "Item has been deleted successfully")
 };
 
 function numberFormat(number) {
@@ -58,7 +67,7 @@ function numberFormat(number) {
           text
           rounded
           aria-label="Cancel"
-          @click="store.deleteCart(item)"
+          @click="handleDelete(item)"
         />
       </div>
 

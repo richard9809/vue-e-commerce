@@ -18,6 +18,8 @@ import Rating from "primevue/rating";
 import Dropdown from "primevue/dropdown";
 import Dialog from "primevue/dialog";
 
+import Toast from "primevue/toast";
+import ToastService from "primevue/toastservice";
 
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
@@ -45,8 +47,10 @@ app.component("Column", Column);
 app.component("ColumnGroup", ColumnGroup);
 app.component("Row", Row);
 app.component("Dialog", Dialog);
+app.component("Toast", Toast);
 
 app.use(createPinia());
 app.use(router);
+app.use(ToastService);
 
 app.mount("#app");

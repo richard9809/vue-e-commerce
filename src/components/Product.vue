@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { useCartStore } from "@/stores/cart";
+import useToastMessages from "@/composables/useToastMessages";
+
+const { showSuccessToast } = useToastMessages();
 
 defineProps({
   item: {
@@ -18,8 +21,8 @@ const addCartItem = (cartId, productName, productPrice) => {
     quantity: 1,
     image: "images/prod-img.jpg",
   };
-
   store.addToCart(newCartItem);
+  showSuccessToast("Add", "Product added successfully!")
 };
 
 function numberFormat(number) {
